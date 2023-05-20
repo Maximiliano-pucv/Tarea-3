@@ -231,22 +231,7 @@ void MarcarTarea (List * lista,TipoAccion * accion){
   accion->accion = 3;
   
 }
-//borrar antes de entregar
-void mirar (List * lista){
-  TareaInfo *listamain = firstList(lista);
-  while(listamain != NULL){
-    printf("%s,%i \n",listamain-> nombre, listamain -> prioridad);
-    printf("precedentes:\n");
-    TareaInfo * listapre = firstList(listamain -> precedentes);
-    while(listapre != NULL){
-      printf("---%s\n",listapre -> nombre);
-      
-      listapre = nextList(listamain -> precedentes);
-    }
-    ENTER;
-    listamain = nextList(lista);
-  }
-}
+
 //importar datos
 const char *get_csv_field (char * tmp, int k) {
     int open_mark = 0;
@@ -397,7 +382,6 @@ int main(void) {
     printf("|4. Marcar tarea como completada (nombre)              |\n");
     printf("|5. Deshacer última acción                             |\n");
     printf("|6. Cargar datos de tareas desde un archivo de texto   |\n");
-    printf("|7. Funcion defalult pa los desarrolladores (no usar)  |\n");
     printf("|0. Terminar                                           |\n");
     BARRA;
      
@@ -509,15 +493,6 @@ int main(void) {
         printf("░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░\n");
         printf("\n");  
         return 0;
-      break;
-      //funcion borrar despues
-      case 7:
-        ENTER;
-        BARRA;
-        printf("    Funcion defalult pa los desarrolladores\n");
-        BARRA;
-        ENTER;
-        mirar(lista);
       break;
       
       default:
